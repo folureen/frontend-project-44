@@ -2,19 +2,19 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/Onilee7/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/Onilee7/frontend-project-44/actions)",
+  "description": "[![Actions Status](https://github.com/folureen/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/folureen/frontend-project-44/actions)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Onilee7/frontend-project-44.git"
+    "url": "git+https://github.com/folureen/frontend-project-44.git"
   },
   "author": "OniLee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Onilee7/frontend-project-44/issues"
+    "url": "https://github.com/folureen/frontend-project-44/issues"
   },
   "bin": {
     "brain-games": "bin/brain-games.js",
@@ -24,7 +24,7 @@
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
   },
-  "homepage": "https://github.com/Onilee7/frontend-project-44#readme",
+  "homepage": "https://github.com/folureen/frontend-project-44#readme",
   "dependencies": {
     "readline-sync": "^1.4.10"
   },
