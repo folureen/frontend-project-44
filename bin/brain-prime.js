@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import runGameWithCounter from "../src/allGames.js";
+import runGameWithCounter from '../src/allGames.js';
 
-runGameWithCounter("brain-prime");
+runGameWithCounter('brain-prime');

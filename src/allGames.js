@@ -1,4 +1,4 @@
-import * as readlineSync from "readline-sync";
+import * as readlineSync from 'readline-sync';
 
 let GameOver;
 let userName;
@@ -12,8 +12,8 @@ let stepProgress;
 
 // Приветствие
 const greetings = () => {
-	userName = readlineSync.question("Welcome to the Brain Games! \nMay I have your name? ");
-	console.log(`${"Hello,"} ${userName}${"!"}`);
+	userName = readlineSync.question('Welcome to the Brain Games! \nMay I have your name? ');
+	console.log(`${'Hello,'} ${userName}${'!'}`);
 };
 
 // Определение имени
@@ -24,20 +24,20 @@ function getUsersName() {
 // Правила игры
 const rulesOfGame = (nameGame) => {
 	switch (nameGame) {
-	case "brain-even":
-		console.log("Answer \"yes\" if the number is even, otherwise answer \"no\".");
+	case 'brain-even':
+		console.log('Answer "yes" if the number is even, otherwise answer "no".');
 		break;
-	case "brain-calc":
-		console.log("What is the result of the expression?");
+	case 'brain-calc':
+		console.log('What is the result of the expression?');
 		break;
-	case "brain-gcd":
-		console.log("Find the greatest common divisor of given numbers.");
+	case 'brain-gcd':
+		console.log('Find the greatest common divisor of given numbers.');
 		break;
-	case "brain-progression":
-		console.log("What number is missing in the progression?");
+	case 'brain-progression':
+		console.log('What number is missing in the progression?');
 		break;
-	case "brain-prime":
-		console.log("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
+	case 'brain-prime':
+		console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 		break;
 	default:
   // do nothing
@@ -53,7 +53,7 @@ function getRandom(min, max) {
 
 // Рандомный математический знак
 const getRandomMathSign = () => {
-	const arr = ["+", "-", "*"];
+	const arr = ['+', '-', '*'];
 	const i = Math.floor(Math.random() * arr.length);
 	const operator = arr[i];
 	return operator;
@@ -72,8 +72,8 @@ const progression = () => {
 	) {
 		arr.push(i);
 	}
-	ProgressionNumber = arr.splice(hideOfIndexNumber, 1, "..");
-	arr = arr.join(" ");
+	ProgressionNumber = arr.splice(hideOfIndexNumber, 1, '..');
+	arr = arr.join(' ');
 	return arr;
 };
 
@@ -84,46 +84,46 @@ const question = (nameGame) => {
 	sign = getRandomMathSign();
 	let questionResult;
 	switch (nameGame) {
-	case "brain-even":
-		questionResult = console.log(`${"Question:"} ${firstRandomNumber}`);
+	case 'brain-even':
+		questionResult = console.log(`${'Question:'} ${firstRandomNumber}`);
 		break;
-	case "brain-calc":
-		questionResult = console.log(`${"Question:"} ${firstRandomNumber} ${sign} ${secondRandomNumber}`);
+	case 'brain-calc':
+		questionResult = console.log(`${'Question:'} ${firstRandomNumber} ${sign} ${secondRandomNumber}`);
 		break;
-	case "brain-gcd":
-		questionResult = console.log(`${"Question:"} ${firstRandomNumber} ${secondRandomNumber}`);
+	case 'brain-gcd':
+		questionResult = console.log(`${'Question:'} ${firstRandomNumber} ${secondRandomNumber}`);
 		break;
-	case "brain-progression":
-		questionResult = console.log(`${"Question:"} ${progression(firstRandomNumber, stepProgress)}`);
+	case 'brain-progression':
+		questionResult = console.log(`${'Question:'} ${progression(firstRandomNumber, stepProgress)}`);
 		break;
-	case "brain-prime":
-		questionResult = console.log(`${"Question:"} ${firstRandomNumber}`);
+	case 'brain-prime':
+		questionResult = console.log(`${'Question:'} ${firstRandomNumber}`);
 		break;
 	default:
-		console.log("Sorry, something wrong");
+		console.log('Sorry, something wrong');
 		break;
 	}
 	return questionResult;
 };
 
 // Ответ от пользователя
-const getUsersAnswer = () => readlineSync.question("Your answer: ");
+const getUsersAnswer = () => readlineSync.question('Your answer: ');
 
 // Расчет правильно ответа brain-even
 const brainEvenCorrectAnswer = (a) => {
 	if (a % 2 === 0) {
-		CorrectAnswer = "yes";
+		CorrectAnswer = 'yes';
 	} else if (a % 2 !== 0) {
-		CorrectAnswer = "no";
+		CorrectAnswer = 'no';
 	}
 	return CorrectAnswer;
 };
 
 // Правельный ответ brain-calc
 const brainCalcCorrectAnswer = (a, b) => {
-	if (sign === "+") {
+	if (sign === '+') {
 		CorrectAnswer = a + b;
-	} else if (sign === "-") {
+	} else if (sign === '-') {
 		CorrectAnswer = a - b;
 	} else {
 		CorrectAnswer = a * b;
@@ -144,39 +144,39 @@ const brainGcdCorrectAnswer = (a, b) => {
 const brainPrimeCorrectAnswer = (a) => {
 	for (let i = 2; i < a; i += 1) {
 		if (a % i === 0) {
-			return "no";
+			return 'no';
 		}
 	}
-	return "yes";
+	return 'yes';
 };
 
 // Правельный ответ в зависимости от игры
 const correctAnswer = (nameGame) => {
 	switch (nameGame) {
-	case "brain-even":
+	case 'brain-even':
 		brainEvenCorrectAnswer(firstRandomNumber);
 		break;
-	case "brain-calc":
+	case 'brain-calc':
 		brainCalcCorrectAnswer(firstRandomNumber, secondRandomNumber);
 		break;
-	case "brain-gcd":
+	case 'brain-gcd':
 		CorrectAnswer = brainGcdCorrectAnswer(firstRandomNumber, secondRandomNumber);
 		break;
-	case "brain-progression":
+	case 'brain-progression':
 		CorrectAnswer = ProgressionNumber;
 		break;
-	case "brain-prime":
+	case 'brain-prime':
 		CorrectAnswer = brainPrimeCorrectAnswer(firstRandomNumber);
 		break;
 	default:
-		console.log("Sorry, something wrong");
+		console.log('Sorry, something wrong');
 		break;
 	}
 	return CorrectAnswer.toString();
 };
 
 const textOfcorrectAnswer = () => {
-	console.log("Correct!");
+	console.log('Correct!');
 };
 
 const compareOfAnswer = (nameGame) => {
@@ -185,8 +185,8 @@ const compareOfAnswer = (nameGame) => {
 	if (answer === userAnswer) {
 		textOfcorrectAnswer();
 	} else {
-		console.log(`${userAnswer} ${"is wrong answer ;(. Correct answer was"} ${answer}.\n${"Let's try again,"} ${getUsersName()}!`);
-		GameOver = "true";
+		console.log(`${userAnswer} ${'is wrong answer ;(. Correct answer was'} ${answer}.\n${'Let\'s try again,'} ${getUsersName()}!`);
+		GameOver = 'true';
 	}
 };
 
@@ -195,14 +195,14 @@ const runGameWithCounter = (nameGame) => {
 	rulesOfGame(nameGame);
 	const count = 3;
 	let i = 0;
-	while (i < count && GameOver !== "true") {
+	while (i < count && GameOver !== 'true') {
 		question(nameGame);
 		correctAnswer(nameGame);
 		compareOfAnswer(nameGame);
 		i += 1;
 	}
-	if (i === 3 && GameOver !== "true") {
-		console.log(`${"Congratulations,"} ${getUsersName()}!`);
+	if (i === 3 && GameOver !== 'true') {
+		console.log(`${'Congratulations,'} ${getUsersName()}!`);
 	}
 };
 
