@@ -10,9 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/folureen/frontend-project-44.git"
   },
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
